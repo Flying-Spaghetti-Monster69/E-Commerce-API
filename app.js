@@ -4,6 +4,8 @@ const port = 5000;
 require("dotenv").config();
 require("express-async-errors");
 
+const authRouter = require("./routes/authRoutes");
+
 // other packages
 const morgan = require("morgan");
 
@@ -19,6 +21,7 @@ app.use(express.json());
 app.use(morgan("tiny"));
 
 app.get("/", (req, res) => res.status(200).send("E-commerce-API!"));
+app.use("/api/v1/auth", authRouter);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
