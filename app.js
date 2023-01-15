@@ -8,6 +8,7 @@ const authRouter = require("./routes/authRoutes");
 
 // other packages
 const morgan = require("morgan");
+const cookieParser = require("cookie-parser");
 
 // connect DB
 
@@ -19,6 +20,7 @@ const notFoundMiddleware = require("./middleware/not-found");
 
 app.use(express.json());
 app.use(morgan("tiny"));
+app.use(cookieParser());
 
 app.get("/", (req, res) => res.status(200).send("E-commerce-API!"));
 app.use("/api/v1/auth", authRouter);
