@@ -1,11 +1,7 @@
 const User = require("../models/User");
 const { StatusCodes } = require("http-status-codes");
 const customError = require("../errors");
-const {
-  createJWT,
-  isTokenValid,
-  attachCookiesToResponse,
-} = require("../utils");
+const { attachCookiesToResponse } = require("../utils");
 
 const register = async (req, res) => {
   const { email, name, password } = req.body;
